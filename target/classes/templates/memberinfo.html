@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Information - Lost and Found System</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/css/adminlite/adminlte.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <nav><!-- Navbar content --></nav>
+    <aside><!-- Sidebar content --></aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <h1 class="m-0">Member Information</h1>
+            </div>
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${Users}">
+                        <td th:text="${user.id}">1</td>
+                        <td th:text="${user.name}">John Doe</td>
+                        <td th:text="${user.email}">john@example.com</td>
+                        <td th:text="${user.role}">Admin</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer">
+        <strong><a href="dashboard.html">Lost and Found System</a>.</strong>
+        All rights reserved 2024.
+        <div class="float-right d-none d-sm-inline-block">
+        </div>
+    </footer></div>
+<script th:src="@{/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/css/adminlite/adminlte.min.js}"></script>
+
+</body>
+</html>

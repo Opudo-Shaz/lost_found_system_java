@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  mysql-container:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3307:3306"
+    networks:
+      - lostandfound-network
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    image: lostandfound-app
+    container_name: lostandfound-app
+    restart: always
+    depends_on:
+      - mysql-container
+    ports:
+      - "8080:8080"
+    networks:
+      - lostandfound-network
+    env_file:
+      - .env
+
+networks:
+  lostandfound-network:
+
+volumes:
+  mysql_data:

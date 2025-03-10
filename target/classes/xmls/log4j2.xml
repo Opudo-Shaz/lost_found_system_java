@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="DEBUG" name="Project name">
+    <Properties>
+        <Property name="log-path">${env:LOG_PATH:-/var/log/lostAndFound_logs/logs}</Property>
+        <Property name="logfile-name">application</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">${sys:LOG_EXCEPTION_CONVERSION_WORD:-%xwEx}</Property>
+        <Property name="LOG_LEVEL_PATTERN">%5p</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN} ${sys:PID} --- [%15.15t] %-40.40c{1.} : %m%n${LOG_EXCEPTION_CONVERSION_WORD}</Pattern>
+            </PatternLayout>
+        </Console>
+
+        <!-- Rolling File Appender for General Logs -->
+        <RollingFile name="file"
+                     fileName="${log-path}/application.log"
+                     filePattern="${log-path}/application-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN} ${sys:PID} --- [%15.15t] %c : %m%n${LOG_EXCEPTION_CONVERSION_WORD}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+
+        <!-- Rolling File Appender for Error Logs -->
+        <RollingFile name="errorFile"
+                     fileName="${log-path}/error.log"
+                     filePattern="${log-path}/error-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN} ${sys:PID} --- [%15.15t] %c : %m%n${LOG_EXCEPTION_CONVERSION_WORD}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Logger for Error Level Logs -->
+        <Logger name="ErrorLogger" level="ERROR" additivity="false">
+            <AppenderRef ref="errorFile"/>
+        </Logger>
+
+        <!-- Root Logger -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>

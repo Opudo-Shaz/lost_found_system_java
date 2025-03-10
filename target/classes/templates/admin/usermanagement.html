@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Management - Lost and Found System</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/css/adminlite/adminlte.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <nav><!-- Navbar content --></nav>
+    <aside><!-- Sidebar content --></aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <h1 class="m-0">User Management</h1>
+            </div>
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.id}">1</td>
+                        <td th:text="${user.username}">johndoe</td>
+                        <td th:text="${user.role}">Admin</td>
+                        <td>
+                            <button class="btn btn-danger" th:onclick="'deleteUser(' + ${user.id} + ')'">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" th:onclick="'window.location.href=\'/adduser\''">Add User</button>
+            </div>
+        </section>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+</body>
+</html>

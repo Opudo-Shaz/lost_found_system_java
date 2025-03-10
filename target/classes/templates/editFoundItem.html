@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container edit-item-form mt-5">
+    <h1 class="text-center mb-4">Edit Found Item</h1>
+
+    <form th:action="@{/found-items/save-found-item}" th:object="${foundItem}" method="post" class="form-horizontal">
+
+        <!-- Item Name -->
+        <div class="form-group">
+            <label for="name" class="col-form-label">Item Name:</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control" />
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description" class="col-form-label">Description:</label>
+            <textarea id="description" th:field="*{description}" class="form-control"></textarea>
+        </div>
+
+        <!-- Location Found -->
+        <div class="form-group">
+            <label for="locationFound" class="col-form-label">Location Found:</label>
+            <input type="text" id="locationFound" th:field="*{locationFound}" class="form-control" />
+        </div>
+
+        <!-- Finder's Contact -->
+        <div class="form-group">
+            <label for="finderContact" class="col-form-label">Finder's Contact:</label>
+            <input type="text" id="finderContact" th:field="*{finderContact}" class="form-control" />
+        </div>
+
+        <!-- Date Found -->
+        <div class="form-group">
+            <label for="dateFound" class="col-form-label">Date Found:</label>
+            <input type="date" id="dateFound" th:field="*{dateFound}" class="form-control" />
+        </div>
+
+        <!-- Claimed Status -->
+        <div class="form-group">
+            <label for="isClaimed" class="col-form-label">Claimed</label>
+            <select id="isClaimed" class="form-control" th:field="*{isClaimed}">
+                <option value="false" th:selected="*{isClaimed} == false">No</option>
+                <option value="true" th:selected="*{isClaimed} == true">Yes</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg w-100 m-2">Save</button>
+        </div>
+
+    </form>
+
+    <!-- Back Button -->
+    <div class="form-group mt-3">
+        <a href="/found-items" class="btn btn-secondary btn-lg w-100 m-2">Back to Found Items</a>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+</body>
+</html>

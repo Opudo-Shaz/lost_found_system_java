@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container">
+    <!-- Search Form -->
+    <form th:action="@{/lost-items/search}" method="get" class="d-flex mb-4">
+        <input type="text" name="query" class="form-control" placeholder="Search Lost Items"
+               th:value="${query}" />
+        <button type="submit" class="btn btn-primary ms-2">Search</button>
+    </form>
+    <h1 class="mt-4">Lost Items</h1>
+    <!-- Add Lost Item button visible to users with the USER role -->
+        <a href="/lost-items/post-lost-item" class="btn btn-primary m-2">Add Lost Item</a>
+
+    <table class="table table-responsive table-striped">
+        <thead class="table-info">
+        <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Location Lost</th>
+            <th>Owner Contact</th>
+            <th>Date Lost</th>
+            <th>Actions</th> <!-- New column for actions -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.name}">Item Name</td>
+            <td th:text="${item.description}">Description</td>
+            <td th:text="${item.category}">Category</td>
+            <td th:text="${item.locationLost}">Location Lost</td>
+            <td th:text="${item.ownerContact}">Owner Contact</td>
+            <td th:text="${item.dateLost}">Date Lost</td>
+
+            <td>
+                <div class="btn-group" role="group">
+                    <div class="d-flex">
+                        <!-- View button is visible to all users -->
+                        <a th:href="@{'/lost-items/view-lost-item/' + ${item.id}}" class="btn btn-info btn-sm me-3">View</a>
+
+                        <!-- Admin-only actions (Edit and Delete) -->
+                            <a sec:authorize="hasRole('ADMIN')" th:href="@{'/lost-items/edit-lost-item/' + ${item.id}}" class="btn btn-warning btn-sm me-3">Edit</a>
+                            <a sec:authorize="hasRole('ADMIN')" th:href="@{'/lost-items/delete-lost-item/' + ${item.id}}" class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group mt-3">
+    <a href="/" class="btn btn-secondary btn-lg size-100 m-2">Back </a>
+</div>
+<div th:replace="~{fragments/landing-footer :: landing-footer}"></div>
+
+</body>
+</html>

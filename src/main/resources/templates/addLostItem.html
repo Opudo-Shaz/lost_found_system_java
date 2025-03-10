@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container">
+    <h1 class="mt-4">Post Lost Item</h1>
+
+    <!-- Thymeleaf Form for Posting Lost Item -->
+    <form th:action="@{/lost-items/save-lost-item}" th:object="${lostItem}" method="post" enctype="multipart/form-data">
+        <!-- Item Name -->
+        <div class="form-group">
+            <label for="name">Item Name</label>
+            <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter Item Name">
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" th:field="*{description}" placeholder="Enter Item Description"></textarea>
+        </div>
+
+        <!-- Category (Drop-down) -->
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" class="form-control" th:field="*{category}">
+                <option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+            </select>
+        </div>
+
+        <!-- Location Lost -->
+        <div class="form-group">
+            <label for="locationLost">Location Lost</label>
+            <input type="text" id="locationLost" class="form-control" th:field="*{locationLost}" placeholder="Enter Location">
+        </div>
+
+        <!-- Owner Contact -->
+        <div class="form-group">
+            <label for="ownerContact">Owner's Contact</label>
+            <input type="text" id="ownerContact" class="form-control" th:field="*{ownerContact}" placeholder="Enter Contact Information">
+        </div>
+
+        <div class="form-group">
+            <label for="ownerEmail">Finders Email Address</label>
+            <input type="text" id="ownerEmail" class="form-control" th:field="*{ownerEmail}" placeholder="Enter Your Email Address">
+        </div>
+
+        <!-- Date Lost -->
+        <div class="form-group">
+            <label for="dateLost">Date Lost</label>
+            <input type="date" id="dateLost" th:field="*{dateLost}" class="form-control" required />
+        </div>
+
+
+        <!-- Claimed Status -->
+        <div class="form-group">
+            <label for="isClaimed">Claimed</label>
+            <select id="isClaimed" class="form-control" th:field="*{isClaimed}">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" id="image" class="form-control-file" name="image" accept="image/*" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary m-2">Post Lost Item</button>
+    </form>
+
+    <!-- Button to go back to the lost items list -->
+    <a href="/lost-items" class="btn btn-secondary mt-3">Back to Lost Items</a>
+</div>
+<div th:replace="~{fragments/landing-footer :: landing-footer}"></div>
+
+</body>
+</html>

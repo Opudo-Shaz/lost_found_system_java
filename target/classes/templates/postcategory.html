@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Post Category - Lost and Found System</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/css/adminlite/adminlte.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <nav><!-- Navbar content --></nav>
+    <aside><!-- Sidebar content --></aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <h1 class="m-0">Post Category</h1>
+            </div>
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <h3>Existing Categories</h3>
+                <ul class="list-group">
+                    <li th:each="category : ${categories}" class="list-group-item">
+                        <span th:text="${category.name}">Wallets</span>
+                        <button class="btn btn-danger btn-sm float-right" th:onclick="'deleteCategory(' + ${category.id} + ')'">Delete</button>
+                    </li>
+                </ul>
+                <form th:action="@{/postcategory}" method="post" class="mt-4">
+                    <div class="form-group">
+                        <label for="newCategory">New Category</label>
+                        <input type="text" class="form-control" id="newCategory" name="newCategory" placeholder="Enter new category" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer">
+        <strong><a href="dashboard.html">Lost and Found System</a>.</strong>
+        All rights reserved 2024.
+        <div class="float-right d-none d-sm-inline-block">
+        </div>
+    </footer></div>
+<script th:src="@{/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/css/adminlite/adminlte.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal Server Error</title>
+  <link th:href = "@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
+  <link th:href = "@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="alert alert-danger mt-5">
+        <h1 class="display-3">Oops!</h1>
+        <h2 class="display-4">500 - Internal Server Error</h2>
+        <p class="lead">Something went wrong on our end. We're sorry for the inconvenience!</p>
+        <p>Our team has been notified and is working on a fix. Please try again later.</p>
+        <div class="mt-4">
+          <a th:href="@{/}" class="button">Go to Homepage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

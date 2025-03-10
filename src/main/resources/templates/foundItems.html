@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container">
+    <!-- Search Form -->
+    <form th:action="@{/found-items/search}" method="get" class="d-flex mb-4">
+        <input type="text" name="query" class="form-control" placeholder="Search Found Items"
+               th:value="${query}" />
+        <button type="submit" class="btn btn-primary ms-2">Search</button>
+    </form>
+    <h1 class="mt-4">Found Items</h1>
+    <div>
+        <a th:href="@{/found-items/post-found-item}" class="btn btn-primary m-2">Add Found Item</a>
+    </div>
+    <table class="table table-responsive table-striped">
+        <thead class="table-info">
+        <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Location Found</th>
+            <th>Finder Contact</th>
+            <th>Date Found</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.description}"></td>
+            <td th:text="${item.category}"></td>
+            <td th:text="${item.locationFound}"></td>
+            <td th:text="${item.finderContact}"></td>
+            <td th:text="${item.dateFound}"></td>
+            <td>
+                <th:block th:switch="${item.status.name}">
+                    <span th:case="'UNCLAIMED'" th:text="${item.status}" class="badge bg-info bg-lg rounded-pill">Unclaimed</span>
+                    <span th:case="'PENDING'" th:text="${item.status}" class="badge bg-warning rounded-pill">Pending</span>
+                    <span th:case="'CLAIMED'" th:text="${item.status}" class="badge bg-success rounded-pill">Claimed</span>
+                    <span th:case="'DISPUTED'" th:text="${item.status}" class="badge bg-danger rounded-pill">Disputed</span>
+                </th:block>
+            </td>
+
+
+
+            <td>
+                <div class="btn-group" role="group">
+                    <div class="d-flex">
+                        <!-- View button is visible to all users -->
+                        <a th:href="@{'/found-items/view-found-item/' + ${item.id}}" class="btn btn-info btn-sm me-3">View</a>
+
+                        <!-- Edit and Delete buttons only visible for admin -->
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{'/found-items/edit-found-item/' + ${item.id}}" class="btn btn-warning btn-sm me-3">Edit</a>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{'/found-items/delete-found-item/' + ${item.id}}" class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group mt-3">
+    <a href="/" class="btn btn-secondary btn-lg w-80 m-2">Back</a>
+</div>
+
+<div th:replace="~{fragments/landing-footer :: landing-footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logout - Lost and Found System</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/css/adminlite/adminlte.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <nav><!-- Navbar content --></nav>
+    <aside><!-- Sidebar content --></aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <h1 class="m-0">Logout</h1>
+            </div>
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <h3>You have been logged out successfully.</h3>
+                <a th:href="@{/login}" class="btn btn-primary">Login Again</a>
+            </div>
+        </section>
+    </div>
+    <footer><!-- Footer content --></footer>
+</div>
+<script th:src="@{/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/css/adminlite/adminlte.min.js}"></script>
+
+</body>
+</html>

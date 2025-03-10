@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container">
+    <h1 class="mt-4">Post Found Item</h1>
+
+    <!-- Thymeleaf Form -->
+    <form th:action="@{/found-items/post-found-item}" th:object="${foundItem}" method="post">
+        <div class="form-group">
+            <label for="name">Item Name</label>
+            <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter Item Name">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" th:field="*{description}" placeholder="Enter Description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" class="form-control" th:field="*{category}">
+                <!-- Loop through the categories and create an option for each one -->
+                <option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="locationFound">Location Found</label>
+            <input type="text" id="locationFound" class="form-control" th:field="*{locationFound}" placeholder="Enter Location">
+        </div>
+
+        <div class="form-group">
+            <label for="finderContact">Finder's Contact</label>
+            <input type="text" id="finderContact" class="form-control" th:field="*{finderContact}" placeholder="Enter Finder's Contact">
+        </div>
+
+        <div class="form-group">
+            <label for="finderContact">Finders Email Address</label>
+            <input type="text" id="finderEmail" class="form-control" th:field="*{finderEmail}" placeholder="Enter Your Email Address">
+        </div>
+        <div class="form-group">
+            <label for="dateFound">Date Found</label>
+            <input type="date" id="dateFound" class="form-control" th:field="*{dateFound}">
+        </div>
+
+        <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" id="image" class="form-control-file" th:field="*{image}" accept="image/*">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Post Item</button>
+    </form>
+
+    <!-- Button to go back to the lost items list -->
+    <a href="/found-items" class="btn btn-secondary mt-3">Back to Found Items</a>
+
+</div>
+
+<div th:replace="~{fragments/landing-footer :: landing-footer}"></div>
+
+</body>
+</html>

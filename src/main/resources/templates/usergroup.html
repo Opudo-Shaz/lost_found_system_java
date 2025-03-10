@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Group - Lost and Found System</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/css/adminlite/adminlte.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <nav><!-- Navbar content --></nav>
+    <aside><!-- Sidebar content --></aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <h1 class="m-0">User Groups</h1>
+            </div>
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <h3>Existing User Groups</h3>
+                <ul class="list-group">
+                    <li th:each="group : ${userGroups}" class="list-group-item">
+                        <span th:text="${group.name}">Admin</span>
+                        <button class="btn btn-danger btn-sm float-right" th:onclick="'deleteGroup(' + ${group.id} + ')'">Delete</button>
+                    </li>
+                </ul>
+                <form th:action="@{/usergroup}" method="post" class="mt-4">
+                    <div class="form-group">
+                        <label for="newGroup">New User Group</label>
+                        <input type="text" class="form-control" id="newGroup" name="newGroup" placeholder="Enter new user group" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add User Group</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

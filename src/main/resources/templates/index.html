@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body class="index-page">
+<div th:replace="~{fragments/header :: header}"></div>
+<main class="main">
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+
+        <img th:src="@{/img/hero-bg.jpg}" alt="" data-aos="fade-in">
+
+        <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2>Welcome to  Patika Lost and Found</h2>
+                    <p>Your go-to platform for lost and found items.</p>
+                    <a th:href="@{/lost-items}" class="btn btn-primary btn-lg">Browse Lost Items</a>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- /Hero Section -->
+
+</main>
+<main>
+    <!-- What We Do Section -->
+    <section  class="what-we-do section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>What We Do</h2>
+            <p>Our Lost and Found platform helps individuals reconnect with lost belongings and provides a simple way to report or claim found items. Whether it's a misplaced wallet, lost keys, or a found phone, our system ensures that lost items can be reported, tracked, and retrieved efficiently.</p>
+
+            <p>We facilitate the process of finding lost possessions and bringing them back to their rightful owners, ensuring that both parties can communicate securely. If you've found an item or lost one, our system allows easy reporting and tracking so that no item goes unclaimed.</p>
+
+            <p>Our goal is to create a seamless, trusted environment where people can report items they've lost, track items they've found, and hopefully reunite with their belongings as quickly as possible.</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+            <div class="row gy-4">
+
+                <!-- Why Choose Us Section -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-box">
+                        <h3>Why Choose Our Lost & Found System?</h3>
+                        <p>
+                            Our platform makes it easy to report lost items and find belongings that others have reported. Whether you’ve lost your wallet, keys, or phone, we provide a simple and secure way to track and claim lost items. We aim to create a trusted community where lost and found items can be reunited quickly and safely.
+                        </p>
+                        <div class="text-center">
+                            <a href="#about" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Why Box -->
+
+                <!-- Features and Benefits -->
+                <div class="col-lg-8 d-flex align-items-stretch">
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+                        <!-- Feature 1: Easy to Report Lost Items -->
+                        <div class="col-xl-4">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-clipboard-data"></i>
+                                <h4>Easy Reporting of Lost Items</h4>
+                                <p>Our platform makes it simple to report lost items, allowing you to provide detailed descriptions and upload images to make it easier for others to recognize your belongings.</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <!-- Feature 2: Secure Communication Between Finders and Owners -->
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-chat-dots"></i>
+                                <h4>Secure Communication</h4>
+                                <p>We provide a secure way for owners and finders to communicate directly through the platform, ensuring privacy and reducing the risk of scams.</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <!-- Feature 3: Quick Claiming Process -->
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-check-circle"></i>
+                                <h4>Fast Item Claiming</h4>
+                                <p>Once an item is found, it can be claimed quickly through our platform, reducing the time it takes for lost items to be reunited with their owners.</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                    </div>
+                </div><!-- End Features Column -->
+
+            </div>
+        </div><!-- End Container -->
+    </section>
+        <section id="about" class="about section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>About Our System</h2>
+                <p>Our platform connects people to help recover lost belongings and reunite owners with their items quickly and safely.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-3">
+
+                    <!-- Image Section -->
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+                        <img th:src="@{/img/about.jpg}" alt="About Lost and Found" class="img-fluid">
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="about-content ps-0 ps-lg-3">
+                            <h3>Why Our Lost and Found System Matters</h3>
+                            <p class="fst-italic">
+                                Our system allows individuals to quickly report lost items and find missing belongings. With the power of a user-friendly platform, we strive to reduce the time it takes to reunite lost items with their rightful owners.
+                            </p>
+                            <ul>
+                                <li>
+                                    <i class="bi bi-clipboard-data"></i>
+                                    <div>
+                                        <h4>Easy Reporting of Lost Items</h4>
+                                        <p>Our platform allows anyone to quickly report lost items with images and detailed descriptions.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="bi bi-gem"></i>
+                                    <div>
+                                        <h4>Quick Reconnection Between Finders and Owners</h4>
+                                        <p>We help owners get in touch with finders securely and swiftly, ensuring the safe return of lost property.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="bi bi-lock"></i>
+                                    <div>
+                                        <h4>Secure and Private Communication</h4>
+                                        <p>Our system ensures that all communication between owners and finders remains private and secure, offering peace of mind.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p>
+                                Our Lost and Found system is designed to help individuals reconnect with their lost items as quickly as possible. By using our platform, you're joining a community dedicated to helping others and making the world a little bit safer and more connected.
+                            </p>
+                        </div>
+                    </div><!-- End Content Section -->
+
+                </div>
+
+            </div><!-- End Container -->
+
+        </section><!-- /About Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Our Services</h2>
+            <p>Helping you reunite with your lost items. Report, browse, claim, and track lost and found items seamlessly.</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <!-- Report a Lost Item -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-flag"></i>
+                        </div>
+                        <a href="/post-lost-item" class="stretched-link">
+                            <h3>Report a Lost Item</h3>
+                        </a>
+                        <p>Lost something important? Report it to our system and help us reunite you with your belongings.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <!-- Browse Found Items -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <a href="/found-items" class="stretched-link">
+                            <h3>Browse Found Items</h3>
+                        </a>
+                        <p>Explore the items that others have found. You might spot your lost item here.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <!-- Claim a Found Item -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <a href="/found-items/claim-found-item" class="stretched-link">
+                            <h3>Claim a Found Item</h3>
+                        </a>
+                        <p>If you find your lost item in our database, you can claim it and start the recovery process.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <!-- Track Your Report -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-bar-chart-line"></i>
+                        </div>
+                        <a href="/track-report" class="stretched-link">
+                            <h3>RealTime Tracking</h3>
+                        </a>
+                        <p>Keep an eye on the status of your lost item report. Get updates on any matches or recoveries.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <!-- Provide Item Details -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <a href="/provide-item-info" class="stretched-link">
+                            <h3>Provide Item Information</h3>
+                        </a>
+                        <p>If you found an item, provide detailed information so others can identify and claim it.</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+            </div><!-- End Row -->
+
+        </div><!-- End Container -->
+
+    </section><!-- /Services Section -->
+
+
+    <!-- Stats Section -->
+    <section class="stats section">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Clients</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Hours Of Support</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+            </div>
+
+    </section><!-- /Stats Section -->
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>What Our Users Say</h2>
+        <p>Our platform has helped many individuals reunite with their lost items. Here’s what they have to say:</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Swiper Carousel -->
+        <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+                {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": {
+                        "delay": 5000
+                    },
+                    "slidesPerView": "auto",
+                    "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                    },
+                    "breakpoints": {
+                        "320": {
+                            "slidesPerView": 1,
+                            "spaceBetween": 40
+                        },
+                        "1200": {
+                            "slidesPerView": 3,
+                            "spaceBetween": 10
+                        }
+                    }
+                }
+            </script>
+
+            <!-- Swiper Wrapper with dynamic testimonials -->
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <img th:src="@{/img/testimonials/testimonials-1.jpg}" class="testimonial-img" alt="User 1">
+                        <h3>Kelvin Nyokabi</h3>
+                        <h4>Lost Item Recoverer</h4>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            <i class="bi bi-quote quote-icon-left"></i>
+                            <span>"I was so relieved to get my lost wallet back! The Lost and Found system is truly a lifesaver. The process was simple and fast!"</span>
+                            <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <img th:src="@{/img/testimonials/testimonials-2.jpg}" class="testimonial-img" alt="User 2">
+                        <h3>Sarah Nyambura</h3>
+                        <h4>Student</h4>
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            <i class="bi bi-quote quote-icon-left"></i>
+                            <span>"I lost my phone on a bus, and the Lost and Found platform helped me connect with the finder. This service is amazing!"</span>
+                            <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div><!-- End testimonial item -->
+
+
+            </div>
+
+            <!-- Pagination Bullets -->
+            <div class="swiper-pagination"></div>
+        </div><!-- End Swiper Carousel -->
+
+    </div>
+
+</section><!-- /Testimonials Section -->
+
+
+<section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, suggestions, or need assistance, feel free to reach out. We’re here to help!</p>
+    </div><!-- End Section Title -->
+
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+            <!-- Contact Information Section -->
+            <div class="col-lg-5">
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <i class="bi bi-geo-alt flex-shrink-0"></i>
+                    <div>
+                        <h3>Our Location</h3>
+                        <p>Lost and Found Ave, Nairobi</p>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-telephone flex-shrink-0"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>+254114981122</p>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <i class="bi bi-envelope flex-shrink-0"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>support@lostandfound@gmail.com</p>
+                    </div>
+                </div><!-- End Info Item -->
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="col-lg-7">
+                <form action="#" th:action="@{/contact}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you for reaching out!</div>
+
+                            <button type="submit">Send Message</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+
+</section><!-- /Contact Section -->
+
+
+</main>
+<div th:replace="~{fragments/landing-footer :: landing-footer}"></div>
+
+</body>
+</html>
